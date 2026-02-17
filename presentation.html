@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projectdoc - Professional Project Presentation</title>
+    <link rel="stylesheet" href="presentation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Projectdoc<span style="color:var(--primary-color)">.</span></a>
+            <ul class="nav-links">
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#tech-stack">Development</a></li>
+                <li><a href="#flowcharts">Flowcharts</a></li>
+                <li><a href="#full-walkthrough">App Journeys</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1><span class="text-gradient">Projectdoc</span><br>Student Attendance System</h1>
+                    <p>Forget the register. The future of attendance is here. <br>
+                        A production-ready mobile platform ensuring 100% data accuracy.</p>
+                    <a href="#tech-stack" class="btn-primary">
+                        How It Was Built <i class="fas fa-code"></i>
+                    </a>
+                </div>
+                <!-- Animated Hero SVG -->
+                <div class="hero-visual">
+                    <!-- Dynamic Architecture SVG: 2 Apps -> Node -> Supabase (Enhanced) -->
+                    <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+                        <defs>
+                            <!-- Gradients -->
+                            <linearGradient id="grad-app" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="grad-node" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4ade80;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="grad-db" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#f472b6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#9333ea;stop-opacity:1" />
+                            </linearGradient>
+
+                            <!-- Glow Filter -->
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+
+                            <!-- Animations -->
+                            <style>
+                                .pulse {
+                                    animation: pulse 3s infinite ease-in-out;
+                                }
+
+                                .pulse-delay-1 {
+                                    animation-delay: 1s;
+                                }
+
+                                .pulse-delay-2 {
+                                    animation-delay: 2s;
+                                }
+
+                                @keyframes pulse {
+                                    0% {
+                                        transform: scale(1);
+                                        opacity: 0.8;
+                                    }
+
+                                    50% {
+                                        transform: scale(1.1);
+                                        opacity: 1;
+                                    }
+
+                                    100% {
+                                        transform: scale(1);
+                                        opacity: 0.8;
+                                    }
+                                }
+
+                                .flow-line {
+                                    stroke-dasharray: 10;
+                                    animation: dash 1s linear infinite;
+                                }
+
+                                @keyframes dash {
+                                    to {
+                                        stroke-dashoffset: -20;
+                                    }
+                                }
+                            </style>
+                        </defs>
+
+                        <!-- Background Mesh (Subtle) -->
+                        <path d="M50,200 Q300,50 550,200 T50,200" fill="none" stroke="rgba(56, 189, 248, 0.1)"
+                            stroke-width="1" />
+                        <path d="M50,200 Q300,350 550,200 T50,200" fill="none" stroke="rgba(56, 189, 248, 0.1)"
+                            stroke-width="1" />
+
+                        <!-- Connection Paths (Animated Dashes) -->
+                        <!-- Faculty to Node -->
+                        <path d="M100,100 Q200,150 300,200" fill="none" stroke="rgba(56, 189, 248, 0.4)"
+                            stroke-width="2" class="flow-line" />
+                        <!-- Student to Node -->
+                        <path d="M100,300 Q200,250 300,200" fill="none" stroke="rgba(56, 189, 248, 0.4)"
+                            stroke-width="2" class="flow-line" />
+                        <!-- Node to DB -->
+                        <path d="M300,200 Q400,200 500,200" fill="none" stroke="rgba(168, 85, 247, 0.4)"
+                            stroke-width="2" class="flow-line" style="animation-direction: reverse;" />
+
+                        <!-- Data Packets (Orbital) -->
+                        <circle r="6" fill="#fff" filter="url(#glow)">
+                            <animateMotion path="M100,100 Q200,150 300,200" dur="1.5s" repeatCount="indefinite" />
+                        </circle>
+                        <circle r="6" fill="#fff" filter="url(#glow)">
+                            <animateMotion path="M100,300 Q200,250 300,200" dur="1.8s" repeatCount="indefinite" />
+                        </circle>
+                        <circle r="6" fill="#a855f7" filter="url(#glow)">
+                            <animateMotion path="M300,200 Q400,200 500,200" dur="1.5s" begin="0.5s"
+                                repeatCount="indefinite" />
+                        </circle>
+
+                        <!-- Nodes -->
+                        <!-- Nodes (Interactive) -->
+                        <!-- 1. Faculty App -->
+                        <g id="node-faculty" class="floating-node pulse"
+                            style="transform-origin: 100px 100px; cursor: pointer;">
+                            <circle cx="100" cy="100" r="35" fill="url(#grad-app)" filter="url(#glow)" stroke="#fff"
+                                stroke-width="2" />
+                            <text x="100" y="105" text-anchor="middle" fill="white" font-weight="bold" font-size="10"
+                                font-family="Inter">Faculty</text>
+
+                        </g>
+
+                        <!-- 2. Student App -->
+                        <g id="node-student" class="floating-node pulse pulse-delay-1"
+                            style="transform-origin: 100px 300px; cursor: pointer;">
+                            <circle cx="100" cy="300" r="35" fill="url(#grad-app)" filter="url(#glow)" stroke="#fff"
+                                stroke-width="2" />
+                            <text x="100" y="305" text-anchor="middle" fill="white" font-weight="bold" font-size="10"
+                                font-family="Inter">Student</text>
+
+                        </g>
+
+                        <!-- 3. Node.js Backend -->
+                        <g id="node-nodejs" class="floating-node pulse"
+                            style="transform-origin: 300px 200px; cursor: pointer;">
+                            <circle cx="300" cy="200" r="45" fill="url(#grad-node)" filter="url(#glow)" stroke="#fff"
+                                stroke-width="3" />
+                            <text x="300" y="205" text-anchor="middle" fill="white" font-weight="bold" font-size="14"
+                                font-family="Inter">Node.js</text>
+                            <path d="M280,170 L320,170" stroke="rgba(255,255,255,0.5)" stroke-width="1" />
+                            <text x="300" y="240" text-anchor="middle" fill="#bbf7d0" font-size="10"
+                                font-family="Inter">Logic Core</text>
+                        </g>
+
+                        <!-- 4. Supabase DB -->
+                        <g id="node-supabase" class="floating-node pulse pulse-delay-2"
+                            style="transform-origin: 500px 200px; cursor: pointer;">
+                            <circle cx="500" cy="200" r="35" fill="url(#grad-db)" filter="url(#glow)" stroke="#fff"
+                                stroke-width="2" />
+                            <text x="500" y="205" text-anchor="middle" fill="white" font-weight="bold" font-size="10"
+                                font-family="Inter">Supabase</text>
+                            <text x="500" y="245" text-anchor="middle" fill="#94a3b8" font-size="10"
+                                font-family="Inter">DB</text>
+                        </g>
+
+                    </svg>
+
+                    <!-- Hero Info Panel (Hidden by default) -->
+                    <div id="hero-info-panel" class="hero-info-panel">
+                        <div class="panel-header">
+                            <h3 id="panel-title">Node Title</h3>
+                            <button id="close-panel"><i class="fas fa-times"></i></button>
+                        </div>
+                        <p id="panel-desc">Node description goes here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="intro">
+            <div class="section-header">
+                <h2 class="section-title">1. Project Introduction</h2>
+                <p class="section-subtitle">Digitizing the traditional classroom experience.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- 1. The Problem -->
+                <div class="card"
+                    style="border-top: 4px solid #ef4444; box-shadow: 0 10px 30px -10px rgba(239, 68, 68, 0.2);">
+                    <div class="card-icon" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Why we built this?</h3>
+                    <p style="color: var(--text-muted); font-size: 1rem;">
+                        <strong>The Struggle:</strong> Paper sheets get lost. Friends answer for absent friends (Proxy).
+                        Teachers
+                        waste hours just counting.
+                        <br><br>
+                        <strong>The Impact:</strong> Students have NO idea they are "Short of Attendance" until they get
+                        detained. Too late.
+                    </p>
+                </div>
+
+                <!-- 2. The Solution -->
+                <div class="card"
+                    style="border-top: 4px solid #22c55e; box-shadow: 0 10px 30px -10px rgba(34, 197, 94, 0.2);">
+                    <div class="card-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>How it works?</h3>
+                    <div style="margin-top: 1rem;">
+                        <p style="margin-bottom: 0.8rem; font-size: 0.95rem;">
+                            <strong style="color: #22c55e;">👨‍🏫 Teachers:</strong> Open app -> Select Class -> Mark
+                            Absent -> Done. Takes 10 seconds.
+                        </p>
+                        <p style="font-size: 0.95rem;">
+                            <strong style="color: #38bdf8;">👨‍🎓 Students:</strong> Check app -> See "75% Attendance"
+                            instantly. No confusion.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Security -->
+                <div class="card"
+                    style="border-top: 4px solid #a855f7; box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.2);">
+                    <div class="card-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Is it safe?</h3>
+                    <p style="color: var(--text-muted); font-size: 1rem;">
+                        <strong>100% Secure.</strong> Students can ONLY see their own data (Privacy).
+                        <br><br>
+                        <strong>Auto-Lock System:</strong> Once attendance is marked, it "locks" automatically after 3
+                        days. No manual tampering possible.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Development & Tech Stack Section -->
+        <section id="tech-stack" style="background: rgba(15, 23, 42, 0.5);">
+            <div class="section-header">
+                <h2 class="section-title">2. Developed with Antigravity</h2>
+                <p class="section-subtitle">Accelerated development using modern AI Agents and Expo Workflow.</p>
+            </div>
+
+            <!-- Perfect Tech Stack Boxes (Interactive) -->
+            <div class="grid-4">
+                <!-- 1. Antigravity -->
+                <div class="card" style="border-color: #FFD700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);">
+                    <div class="card-icon"
+                        style="background: none; -webkit-text-fill-color: #FFD700; font-size: 2.5rem; margin-bottom: 1rem;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Antigravity AI</h3>
+                    <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem;">The "Builder"</p>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">
+                        My AI coding partner. It wrote the code, fixed bugs, and built the entire project logic.
+                    </p>
+                    <!-- Hidden Tech Details -->
+                    <div class="tech-details">
+                        <strong style="color: #FFD700;">Technical Role:</strong> Core Developer Agent<br />
+                        Powered the entire development lifecycle, from code generation to bug fixing.
+                    </div>
+                    <div class="click-hint">Click for details</div>
+                </div>
+
+                <!-- 2. Node.js (Backend) -->
+                <div class="card" style="border-color: #339933; box-shadow: 0 0 20px rgba(51, 153, 51, 0.1);">
+                    <div class="card-icon"
+                        style="background: none; -webkit-text-fill-color: #339933; font-size: 2.5rem; margin-bottom: 1rem;">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <h3>Node.js</h3>
+                    <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem;">The "Mind"</p>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">
+                        The brain of the system. It handles all the calculations and logic behind the scenes.
+                    </p>
+                    <!-- Hidden Tech Details -->
+                    <div class="tech-details">
+                        <strong style="color: #339933;">Technical Role:</strong> Backend Logic<br />
+                        Robust runtime environment handling server-side logic and API integrations.
+                    </div>
+                    <div class="click-hint">Click for details</div>
+                </div>
+
+                <!-- 3. Supabase (Database) -->
+                <div class="card" style="border-color: #3ECF8E; box-shadow: 0 0 20px rgba(62, 207, 142, 0.1);">
+                    <div class="card-icon"
+                        style="background: none; -webkit-text-fill-color: #3ECF8E; font-size: 2.5rem; margin-bottom: 1rem;">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Supabase</h3>
+                    <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem;">The "Vault"</p>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">
+                        Our secure cloud storage. It keeps student data safe and updates everyone in real-time.
+                    </p>
+                    <!-- Hidden Tech Details -->
+                    <div class="tech-details">
+                        <strong style="color: #3ECF8E;">Technical Role:</strong> Cloud Database<br />
+                        PostgreSQL database with Real-time subscriptions and Row Level Security.
+                    </div>
+                    <div class="click-hint">Click for details</div>
+                </div>
+
+                <!-- 4. React Native (Frontend) -->
+                <div class="card" style="border-color: #61DAFB; box-shadow: 0 0 20px rgba(97, 218, 251, 0.1);">
+                    <div class="card-icon"
+                        style="background: none; -webkit-text-fill-color: #61DAFB; font-size: 2.5rem; margin-bottom: 1rem;">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3>React Native</h3>
+                    <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem;">The "Look"</p>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">
+                        The technology that makes our app look beautiful and work smoothly on both Android and iPhone.
+                    </p>
+                    <!-- Hidden Tech Details -->
+                    <div class="tech-details">
+                        <strong style="color: #61DAFB;">Technical Role:</strong> Mobile Frontend<br />
+                        Cross-platform mobile application delivering native performance on iOS & Android.
+                    </div>
+                    <div class="click-hint">Click for details</div>
+                </div>
+            </div>
+
+            <!-- Detailed Libraries (Smaller below) -->
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-hammer"></i></div>
+                    <h3>Development Workflow</h3>
+                    <div
+                        style="text-align: left; color: var(--text-muted); font-family: 'Fira Code', monospace; font-size: 0.9rem;">
+                        <p>> npx create-expo-app faculty-app</p>
+                        <p>> npx expo install @supabase/supabase-js</p>
+                        <p>> npx expo start</p>
+                        <p style="color: var(--primary-color); margin-top: 0.5rem;">// Scanned QR code to run on
+                            physical Android device</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>Faculty App Libraries</h3>
+                    <ul style="text-align: left; color: var(--text-muted); padding-left: 1rem;">
+                        <li>📦 <strong>@react-navigation/bottom-tabs</strong> (Navigation)</li>
+                        <li>📅 <strong>react-native-calendars</strong> (Attendance View)</li>
+                        <li>🔔 <strong>expo-notifications</strong> (Alerts)</li>
+                        <li>🌐 <strong>axios</strong> (API Requests)</li>
+                        <li>📊 <strong>react-native-svg</strong> (Charts)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Student App Libraries</h3>
+                    <ul style="text-align: left; color: var(--text-muted); padding-left: 1rem;">
+                        <li>📦 <strong>@react-navigation/strict-stack</strong> (Routing)</li>
+                        <li>🎨 <strong>expo-linear-gradient</strong> (UI Styling)</li>
+                        <li>📅 <strong>react-native-calendars</strong> (History)</li>
+                        <li>💾 <strong>async-storage</strong> (Local Data)</li>
+                        <li>🔥 <strong>supabase-js</strong> (Real-time DB)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2.5 Interactive Project Folder Structure -->
+        <section id="folder-structure" style="margin-top: 4rem;">
+            <div class="section-header">
+
+                <div class="code-tree-container">
+                    <!-- Faculty App Tree -->
+                    <div class="tree-root">
+                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                            data-desc="Teacher's Mobile Application (React Native)">
+                            <i class="fas fa-folder" style="color: #f97316;"></i>
+                            <span>faculty-app</span>
+                        </div>
+                        <ul class="tree-children">
+                            <li>
+                                <div class="tree-item folder" onclick="toggleFolder(this)"
+                                    data-desc="Static Assets (Images, Fonts)">
+                                    <i class="fas fa-folder" style="color: #8b5cf6;"></i>
+                                    <span>assets</span>
+                                </div>
+                                <ul class="tree-children">
+                                    <li class="tree-item file" data-desc="Custom Font Files"><i class="fas fa-font"
+                                            style="color: #e2e8f0;"></i> fonts</li>
+                                    <li class="tree-item file" data-desc="App Icons & Splash"><i class="fas fa-image"
+                                            style="color: #e2e8f0;"></i> images</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="tree-item folder" onclick="toggleFolder(this)"
+                                    data-desc="Source Code Directory">
+                                    <i class="fas fa-folder" style="color: #f97316;"></i>
+                                    <span>src</span>
+                                </div>
+                                <ul class="tree-children">
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="UI Screens for the App">
+                                            <i class="fas fa-folder-open" style="color: #f97316;"></i>
+                                            <span>screens</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="Teacher Login Page"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i> LoginScreen.js
+                                            </li>
+                                            <li class="tree-item file"
+                                                data-desc="Home: View Subjects & Recent Activity"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i> DashboardScreen.js
+                                            </li>
+                                            <li class="tree-item file" data-desc="Core Feature: Mark/Edit Attendance"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i>
+                                                MarkAttendanceScreen.js</li>
+                                            <li class="tree-item file" data-desc="View List of Enrolled Students"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i>
+                                                StudentListScreen.js</li>
+                                            <li class="tree-item file" data-desc="Admin: Register New Student"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i>
+                                                AddStudentScreen.js</li>
+                                            <li class="tree-item file" data-desc="Admin: Create New Subject"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i>
+                                                AddSubjectScreen.js</li>
+                                            <li class="tree-item file" data-desc="Filter: Choose Semester 1-6"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i>
+                                                SemesterSelectScreen.js</li>
+                                            <li class="tree-item file" data-desc="Filter: Choose Subject"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i>
+                                                SubjectSelectScreen.js</li>
+                                            <li class="tree-item file" data-desc="App Config & Profile Management"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i> SettingsScreen.js
+                                            </li>
+                                            <li class="tree-item file" data-desc="Initial Loading Screen"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i> SplashScreen.js
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="Navigation Logic (Stack/Tab)">
+                                            <i class="fas fa-folder" style="color: #f97316;"></i>
+                                            <span>navigation</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="Bottom Tab Navigator Config"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> FacultyTabs.js</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="Global State Management">
+                                            <i class="fas fa-folder" style="color: #f97316;"></i>
+                                            <span>context</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="Dark/Light Mode Logic"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i> ThemeContext.js
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="API & Helper Services">
+                                            <i class="fas fa-folder" style="color: #f97316;"></i>
+                                            <span>services</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="Axios/Fetch Calls to Backend"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> api.js</li>
+                                            <li class="tree-item file" data-desc="Push Notification Logic"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i>
+                                                NotificationService.js</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tree-item file" data-desc="Main Component"><i class="fab fa-react"
+                                    style="color: #38bdf8;"></i> App.js</li>
+                            <li class="tree-item file" data-desc="Expo Config"><i class="fas fa-file-code"
+                                    style="color: #eab308;"></i> app.json</li>
+                            <li class="tree-item file" data-desc="App Registry Entry"><i class="fab fa-js"
+                                    style="color: #fbbf24;"></i> index.js</li>
+                            <li class="tree-item file" data-desc="Dependencies & Scripts"><i class="fab fa-npm"
+                                    style="color: #cb3837;"></i> package.json</li>
+                        </ul>
+                    </div>
+
+                    <!-- Student App Tree -->
+                    <div class="tree-root">
+                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                            data-desc="Student's Mobile Application (React Native)">
+                            <i class="fas fa-folder" style="color: #06b6d4;"></i>
+                            <span>student-app</span>
+                        </div>
+                        <ul class="tree-children">
+                            <li>
+                                <div class="tree-item folder" onclick="toggleFolder(this)" data-desc="Static Assets">
+                                    <i class="fas fa-folder" style="color: #8b5cf6;"></i>
+                                    <span>assets</span>
+                                </div>
+                                <ul class="tree-children">
+                                    <li class="tree-item file" data-desc="Fonts & Icons"><i class="fas fa-image"
+                                            style="color: #e2e8f0;"></i> resources</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="tree-item folder" onclick="toggleFolder(this)"
+                                    data-desc="Source Code Directory">
+                                    <i class="fas fa-folder" style="color: #06b6d4;"></i>
+                                    <span>src</span>
+                                </div>
+                                <ul class="tree-children">
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="UI Screens">
+                                            <i class="fas fa-folder-open" style="color: #06b6d4;"></i>
+                                            <span>screens</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="Student Login (Enrollment No)"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i> LoginScreen.js
+                                            </li>
+                                            <li class="tree-item file" data-desc="Home: View Attendance %"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i> DashboardScreen.js
+                                            </li>
+                                            <li class="tree-item file" data-desc="Deep Dive: Day-wise History"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i>
+                                                AttendanceDetailScreen.js</li>
+                                            <li class="tree-item file" data-desc="Initial Loading Screen"><i
+                                                    class="fab fa-react" style="color: #38bdf8;"></i> SplashScreen.js
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="Configuration Files">
+                                            <i class="fas fa-folder" style="color: #06b6d4;"></i>
+                                            <span>config</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="Supabase Connection Client"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> supabase.js</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="API Services">
+                                            <i class="fas fa-folder" style="color: #06b6d4;"></i>
+                                            <span>services</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="Backend API Calls"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> api.js</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tree-item file" data-desc="Main Component"><i class="fab fa-react"
+                                    style="color: #38bdf8;"></i> App.js</li>
+                            <li class="tree-item file" data-desc="Expo Config"><i class="fas fa-file-code"
+                                    style="color: #eab308;"></i> app.json</li>
+                            <li class="tree-item file" data-desc="App Registry Entry"><i class="fab fa-js"
+                                    style="color: #fbbf24;"></i> index.js</li>
+                            <li class="tree-item file" data-desc="Dependencies"><i class="fab fa-npm"
+                                    style="color: #cb3837;"></i> package.json</li>
+                        </ul>
+                    </div>
+
+                    <!-- Backend Tree -->
+                    <div class="tree-root">
+                        <div class="tree-item folder" onclick="toggleFolder(this)" data-desc="Node.js Express Server">
+                            <i class="fas fa-folder" style="color: #eab308;"></i>
+                            <span>backend</span>
+                        </div>
+                        <ul class="tree-children">
+                            <li>
+                                <div class="tree-item folder" onclick="toggleFolder(this)"
+                                    data-desc="Source Code Directory">
+                                    <i class="fas fa-folder" style="color: #eab308;"></i>
+                                    <span>src</span>
+                                </div>
+                                <ul class="tree-children">
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="Configuration">
+                                            <i class="fas fa-folder" style="color: #eab308;"></i>
+                                            <span>config</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="Database Connection Pool"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> db.js</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="Business Logic Layer">
+                                            <i class="fas fa-folder" style="color: #eab308;"></i>
+                                            <span>controllers</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="Login/Register Logic"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> authController.js
+                                            </li>
+                                            <li class="tree-item file" data-desc="Teacher Operations Logic"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> facultyController.js
+                                            </li>
+                                            <li class="tree-item file" data-desc="Student Views Logic"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> studentController.js
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="API Endpoints Definition">
+                                            <i class="fas fa-folder" style="color: #eab308;"></i>
+                                            <span>routes</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="POST /login endpoints"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> authRoutes.js</li>
+                                            <li class="tree-item file" data-desc="GET/POST Faculty endpoints"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> facultyRoutes.js</li>
+                                            <li class="tree-item file" data-desc="GET Student endpoints"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> studentRoutes.js</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-item folder" onclick="toggleFolder(this)"
+                                            data-desc="Middleware functions">
+                                            <i class="fas fa-folder" style="color: #eab308;"></i>
+                                            <span>middleware</span>
+                                        </div>
+                                        <ul class="tree-children">
+                                            <li class="tree-item file" data-desc="JWT Token Verification"><i
+                                                    class="fab fa-js" style="color: #fbbf24;"></i> authMiddleware.js
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="tree-item file" data-desc="Main Server Entry (Port 5000)"><i
+                                    class="fab fa-node-js" style="color: #22c55e;"></i> server.js</li>
+                            <li class="tree-item file" data-desc="PostgreSQL Database Tables & RLS"><i
+                                    class="fas fa-database" style="color: #38bdf8;"></i> final_schema.sql</li>
+                            <li class="tree-item file" data-desc="Environment Variables (Secrets)"><i
+                                    class="fas fa-lock" style="color: #ef4444;"></i> .env</li>
+                            <li class="tree-item file" data-desc="Project Dependencies"><i class="fab fa-npm"
+                                    style="color: #cb3837;"></i> package.json</li>
+                            <li class="tree-item file" data-desc="Auth Test Script"><i class="fas fa-vial"
+                                    style="color: #a855f7;"></i> test_auth.js</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Interactive Tooltip -->
+                <div id="tree-tooltip" class="tree-tooltip"></div>
+        </section>
+
+        <style>
+            .code-tree-container {
+                background: #1e293b;
+                border: 1px solid #334155;
+                border-radius: 12px;
+                padding: 2rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+                font-family: 'Consolas', 'Monaco', monospace;
+                /* Code font */
+                position: relative;
+            }
+
+            .tree-root {
+                background: #0f172a;
+                padding: 1.5rem;
+                border-radius: 8px;
+                border: 1px solid #334155;
+            }
+
+            .tree-item {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.5rem;
+                cursor: pointer;
+                color: #e2e8f0;
+                border-radius: 4px;
+                transition: all 0.2s;
+                user-select: none;
+                position: relative;
+                /* For tooltip positioning context if needed */
+            }
+
+            .tree-item:hover {
+                background: rgba(56, 189, 248, 0.1);
+                color: #38bdf8;
+            }
+
+            .tree-item.folder {
+                font-weight: 600;
+            }
+
+            .tree-children {
+                list-style: none;
+                padding-left: 1.5rem;
+                border-left: 1px solid #334155;
+                margin-left: 0.75rem;
+                display: none;
+                /* Hidden by default */
+                animation: slideDown 0.3s ease-out;
+            }
+
+            .tree-children.open {
+                display: block;
+            }
+
+            .tree-item i {
+                width: 20px;
+                text-align: center;
+            }
+
+            .tree-item.file {
+                color: #94a3b8;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-5px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Tooltip Styles */
+            .tree-tooltip {
+                position: fixed;
+                background: rgba(15, 23, 42, 0.95);
+                border: 1px solid #38bdf8;
+                color: #fff;
+                padding: 0.5rem 1rem;
+                border-radius: 6px;
+                font-size: 0.9rem;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.2s;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                white-space: nowrap;
+                backdrop-filter: blur(4px);
+            }
+
+            .tree-tooltip.visible {
+                opacity: 1;
+            }
+        </style>
+
+        <script>
+            // Inline script to handle tooltip logic specific to this section
+            document.addEventListener('DOMContentLoaded', () => {
+                const tooltip = document.getElementById('tree-tooltip');
+                const treeItems = document.querySelectorAll('.tree-item');
+
+                treeItems.forEach(item => {
+                    item.addEventListener('mouseenter', (e) => {
+                        const desc = item.getAttribute('data-desc');
+                        if (desc) {
+                            tooltip.textContent = desc;
+                            tooltip.classList.add('visible');
+                            updateTooltipPosition(e);
+                        }
+                    });
+
+                    item.addEventListener('mousemove', (e) => {
+                        if (tooltip.classList.contains('visible')) {
+                            updateTooltipPosition(e);
+                        }
+                    });
+
+                    item.addEventListener('mouseleave', () => {
+                        tooltip.classList.remove('visible');
+                    });
+                });
+
+                function updateTooltipPosition(e) {
+                    // Offset from cursor
+                    const x = e.clientX + 15;
+                    const y = e.clientY + 15;
+                    tooltip.style.left = `${x}px`;
+                    tooltip.style.top = `${y}px`;
+                }
+            });
+        </script>
+
+        <!-- Zoom Modal Styles -->
+        <style>
+            /* Modal Background */
+            .modal-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(15, 23, 42, 0.9);
+                backdrop-filter: blur(8px);
+                z-index: 9999;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .modal-overlay.active {
+                display: flex;
+                opacity: 1;
+            }
+
+            /* Modal Content Container */
+            .modal-content {
+                background: #1e293b;
+                width: 95vw;
+                height: 90vh;
+                padding: 1rem;
+                border-radius: 12px;
+                border: 1px solid #334155;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+                transform: scale(0.95);
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            #modal-diagram-container {
+                flex: 1;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                background: #0f172a;
+                /* Contrast background */
+                border-radius: 8px;
+                margin-top: 2rem;
+                /* Space for close button */
+            }
+
+            .modal-overlay.active .modal-content {
+                transform: scale(1);
+            }
+
+            /* Close Button */
+            .close-modal {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: #334155;
+                color: white;
+                border: none;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                transition: background 0.2s;
+                z-index: 10;
+            }
+
+            .close-modal:hover {
+                background: #ef4444;
+                /* Red on hover */
+            }
+
+            /* Zoomed Diagram SVG styling */
+            .modal-content svg {
+                width: 100%;
+                height: auto;
+                max-height: 85vh;
+                /* Keep it within screen */
+            }
+
+            /* Cursor hint for diagrams */
+            .mermaid {
+                cursor: zoom-in;
+            }
+
+            /* Responsive Flowchart Visibility */
+            /* Default: Desktop (Horizontal) */
+            .mobile-flow {
+                display: none;
+            }
+
+            .desktop-flow {
+                display: block;
+            }
+
+            /* Mobile Breakpoint */
+            @media (max-width: 768px) {
+                .mobile-flow {
+                    display: block;
+                }
+
+                .desktop-flow {
+                    display: none;
+                }
+            }
+        </style>
+
+        <!-- Zoom Modal Markup -->
+        <div id="diagram-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button class="close-modal" id="close-diagram-modal">&times;</button>
+
+                <!-- Zoom Controls -->
+                <div class="modal-controls"
+                    style="position: absolute; bottom: 20px; right: 20px; display: flex; gap: 10px; z-index: 20;">
+                    <button id="modal-zoom-out"
+                        style="background: #334155; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">-</button>
+                    <button id="modal-reset"
+                        style="background: #334155; color: white; border: none; padding: 0 15px; height: 40px; border-radius: 20px; font-size: 0.9rem; cursor: pointer;">Reset</button>
+                    <button id="modal-zoom-in"
+                        style="background: #334155; color: white; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">+</button>
+                </div>
+
+                <div id="modal-diagram-container">
+                    <!-- SVG will be cloned here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- System Flowcharts -->
+        <section id="flowcharts" style="background: rgba(30, 41, 59, 0.3); margin-top: 6rem;">
+            <div class="section-header">
+                <h2 class="section-title">3. System Flowcharts</h2>
+                <p class="section-subtitle">Detailed architectural diagrams specific to this project.</p>
+            </div>
+
+            <!-- 3.1 Master Architecture & Process Flow -->
+            <div class="flow-card full-width">
+                <h3>3.1 Master Architecture & Process Flow</h3>
+
+                <!-- Desktop Version (Left to Right) -->
+                <div class="mermaid desktop-flow"
+                    style="height: 600px; overflow: auto; border: 1px solid #334155; border-radius: 8px;">
+                    graph LR
+                    %% Define Pro Styles
+                    classDef proc fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+                    classDef decision fill:#ec4899,stroke:#be185d,stroke-width:2px,color:#fff;
+                    classDef start fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+                    classDef endnode fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;
+                    classDef db fill:#f59e0b,stroke:#b45309,stroke-width:2px,color:#fff;
+
+                    subgraph Backend ["Shared Backend (Node.js + Supabase)"]
+                    DB[(💾 PostgreSQL<br />Supabase DB)]:::db
+                    AuthService{🔐 Auth Service<br />Supabase Auth}:::decision
+                    RLS{🛡️ RLS Policies<br />Data Security}:::decision
+                    end
+                    style Backend fill:#fffbeb,stroke:#f59e0b,stroke-width:2px,color:#b45309
+
+                    subgraph Faculty ["Faculty"]
+                    F_Login(🔐 Secure Login):::proc
+                    F_Dash(🏠 Dashboard<br />View Subjects):::proc
+                    F_Select(📚 Select Class):::proc
+                    F_Date{📅 Date<br />Within 3 days?}:::decision
+                    F_Mark(✍️ Mark Attendance):::proc
+                    F_Sync(🔄 Sync to DB):::proc
+                    end
+                    style Faculty fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#c2410c
+
+                    subgraph Student ["Student"]
+                    S_Login(🔐 Secure Login):::proc
+                    S_Dash(🏠 Dashboard<br />View %):::proc
+                    S_Calc(🧮 Calculate %):::proc
+                    S_Low{⚠️ Below 75%?}:::decision
+                    S_Alert(🚨 Show Red Alert):::endnode
+                    S_Safe(✅ Show Green Status):::start
+                    end
+                    style Student fill:#ecfeff,stroke:#06b6d4,stroke-width:2px,color:#0e7490
+
+                    %% Connections
+                    F_Login --> AuthService
+                    S_Login --> AuthService
+
+                    AuthService -- "Valid" --> F_Dash
+                    AuthService -- "Valid" --> S_Dash
+                    AuthService -- "Invalid" --> F_Login
+
+                    F_Dash --> F_Select
+                    F_Select --> F_Date
+                    F_Date -- "Yes" --> F_Mark
+                    F_Mark --> F_Sync
+                    F_Sync --> RLS
+
+                    RLS --> DB
+                    DB --> S_Calc
+                    S_Dash --> S_Calc
+                    S_Calc --> S_Low
+                    S_Low -- "Yes" --> S_Alert
+                    S_Low -- "No" --> S_Safe
+
+                    linkStyle default stroke:#64748b,stroke-width:2px;
+                </div>
+
+                <!-- Mobile Version (Top to Down) -->
+                <div class="mermaid mobile-flow"
+                    style="height: 600px; overflow: auto; border: 1px solid #334155; border-radius: 8px;">
+                    graph TD
+                    %% Define Pro Styles
+                    classDef proc fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+                    classDef decision fill:#ec4899,stroke:#be185d,stroke-width:2px,color:#fff;
+                    classDef start fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+                    classDef endnode fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;
+                    classDef db fill:#f59e0b,stroke:#b45309,stroke-width:2px,color:#fff;
+
+                    subgraph Backend ["Shared Backend (Node.js + Supabase)"]
+                    DB[(💾 PostgreSQL<br />Supabase DB)]:::db
+                    AuthService{🔐 Auth Service<br />Supabase Auth}:::decision
+                    RLS{🛡️ RLS Policies<br />Data Security}:::decision
+                    end
+                    style Backend fill:#fffbeb,stroke:#f59e0b,stroke-width:2px,color:#b45309
+
+                    subgraph Faculty ["Faculty"]
+                    F_Login(🔐 Secure Login):::proc
+                    F_Dash(🏠 Dashboard<br />View Subjects):::proc
+                    F_Select(📚 Select Class):::proc
+                    F_Date{📅 Date<br />Within 3 days?}:::decision
+                    F_Mark(✍️ Mark Attendance):::proc
+                    F_Sync(🔄 Sync to DB):::proc
+                    end
+                    style Faculty fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#c2410c
+
+                    subgraph Student ["Student"]
+                    S_Login(🔐 Secure Login):::proc
+                    S_Dash(🏠 Dashboard<br />View %):::proc
+                    S_Calc(🧮 Calculate %):::proc
+                    S_Low{⚠️ Below 75%?}:::decision
+                    S_Alert(🚨 Show Red Alert):::endnode
+                    S_Safe(✅ Show Green Status):::start
+                    end
+                    style Student fill:#ecfeff,stroke:#06b6d4,stroke-width:2px,color:#0e7490
+
+                    %% Connections
+                    F_Login --> AuthService
+                    S_Login --> AuthService
+
+                    AuthService -- "Valid" --> F_Dash
+                    AuthService -- "Valid" --> S_Dash
+                    AuthService -- "Invalid" --> F_Login
+
+                    F_Dash --> F_Select
+                    F_Select --> F_Date
+                    F_Date -- "Yes" --> F_Mark
+                    F_Mark --> F_Sync
+                    F_Sync --> RLS
+
+                    RLS --> DB
+                    DB --> S_Calc
+                    S_Dash --> S_Calc
+                    S_Calc --> S_Low
+                    S_Low -- "Yes" --> S_Alert
+                    S_Low -- "No" --> S_Safe
+
+                    linkStyle default stroke:#64748b,stroke-width:2px;
+                </div>
+            </div>
+
+            <!-- 3.2 Faculty Flow (Detailed) -->
+            <div class="flow-card full-width">
+                <h3>3.2 Faculty Flow (Detailed)</h3>
+                <!-- Desktop (LR) -->
+                <div class="mermaid desktop-flow">
+                    graph LR
+                    %% Style Definitions
+                    classDef proc fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+                    classDef decision fill:#ec4899,stroke:#be185d,stroke-width:2px,color:#fff;
+                    classDef start fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+                    classDef endnode fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;
+
+                    Start((🟢 Start)):::start --> Login(🔐 Login Screen):::proc
+                    Login --> Valid{Valid User?}:::decision
+                    Valid -- No --> Error(❌ Error Msg):::endnode
+                    Valid -- Yes --> Dash(🏠 Dashboard):::proc
+
+                    subgraph ActionLoop ["Action Loop"]
+                    Dash --> Select(📚 Select Subject):::proc
+                    Select --> List(📋 Student List):::proc
+                    List --> Toggle{Mark Status}:::decision
+                    Toggle --> Present(✅ Present):::start
+                    Toggle --> Absent(❌ Absent):::endnode
+                    Present & Absent --> Save(💾 Save Data):::proc
+                    end
+                    style ActionLoop fill:#f8fafc,stroke:#94a3b8,stroke-width:2px,stroke-dasharray: 5 5
+
+                    Save --> Success(🎉 Success!):::start
+                    Success --> Dash
+
+                    linkStyle default stroke:#64748b,stroke-width:2px;
+                </div>
+                <!-- Mobile (TD) -->
+                <div class="mermaid mobile-flow">
+                    graph TD
+                    %% Style Definitions
+                    classDef proc fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+                    classDef decision fill:#ec4899,stroke:#be185d,stroke-width:2px,color:#fff;
+                    classDef start fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+                    classDef endnode fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;
+
+                    Start((🟢 Start)):::start --> Login(🔐 Login Screen):::proc
+                    Login --> Valid{Valid User?}:::decision
+                    Valid -- No --> Error(❌ Error Msg):::endnode
+                    Valid -- Yes --> Dash(🏠 Dashboard):::proc
+
+                    subgraph ActionLoop ["Action Loop"]
+                    Dash --> Select(📚 Select Subject):::proc
+                    Select --> List(📋 Student List):::proc
+                    List --> Toggle{Mark Status}:::decision
+                    Toggle --> Present(✅ Present):::start
+                    Toggle --> Absent(❌ Absent):::endnode
+                    Present & Absent --> Save(💾 Save Data):::proc
+                    end
+                    style ActionLoop fill:#f8fafc,stroke:#94a3b8,stroke-width:2px,stroke-dasharray: 5 5
+
+                    Save --> Success(🎉 Success!):::start
+                    Success --> Dash
+
+                    linkStyle default stroke:#64748b,stroke-width:2px;
+                </div>
+            </div>
+
+            <!-- 3.3 Student Flow (Detailed) -->
+            <div class="flow-card full-width">
+                <h3>3.3 Student Flow (Detailed)</h3>
+                <!-- Desktop (LR) -->
+                <div class="mermaid desktop-flow">
+                    graph LR
+                    %% Style Definitions
+                    classDef proc fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+                    classDef decision fill:#ec4899,stroke:#be185d,stroke-width:2px,color:#fff;
+                    classDef start fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+                    classDef endnode fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;
+
+                    Start((🟢 Start)):::start --> Login(🔐 Enrollment No):::proc
+                    Login --> Exists{Exists?}:::decision
+                    Exists -- No --> Block(🚫 Access Denied):::endnode
+                    Exists -- Yes --> Dash(🏠 Dashboard):::proc
+
+                    subgraph Analysis ["Analysis"]
+                    Dash --> Subject(📊 Subject Wise):::proc
+                    Dash --> Calendar(📅 Calendar):::proc
+                    Dash --> Profile(👤 Profile):::proc
+                    end
+                    style Analysis fill:#f8fafc,stroke:#94a3b8,stroke-width:2px,stroke-dasharray: 5 5
+
+                    Subject --> Back(🔙 Back):::proc
+                    Calendar --> Back
+                    Back --> Dash
+
+                    linkStyle default stroke:#64748b,stroke-width:2px;
+                </div>
+                <!-- Mobile (TD) -->
+                <div class="mermaid mobile-flow">
+                    graph TD
+                    %% Style Definitions
+                    classDef proc fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
+                    classDef decision fill:#ec4899,stroke:#be185d,stroke-width:2px,color:#fff;
+                    classDef start fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
+                    classDef endnode fill:#ef4444,stroke:#b91c1c,stroke-width:2px,color:#fff;
+
+                    Start((🟢 Start)):::start --> Login(🔐 Enrollment No):::proc
+                    Login --> Exists{Exists?}:::decision
+                    Exists -- No --> Block(🚫 Access Denied):::endnode
+                    Exists -- Yes --> Dash(🏠 Dashboard):::proc
+
+                    subgraph Analysis ["Analysis"]
+                    Dash --> Subject(📊 Subject Wise):::proc
+                    Dash --> Calendar(📅 Calendar):::proc
+                    Dash --> Profile(👤 Profile):::proc
+                    end
+                    style Analysis fill:#f8fafc,stroke:#94a3b8,stroke-width:2px,stroke-dasharray: 5 5
+
+                    Subject --> Back(🔙 Back):::proc
+                    Calendar --> Back
+                    Back --> Dash
+
+                    linkStyle default stroke:#64748b,stroke-width:2px;
+                </div>
+            </div>
+
+            <!-- 3.4 Database ER Diagram -->
+            <div class="flow-card full-width">
+                <h3>3.4 Database Schema (Exact Structure)</h3>
+                <div class="mermaid">
+                    erDiagram
+                    users ||--o{ teachers : "is"
+                    users ||--o{ students : "is"
+                    academic_years ||--|{ semesters : "contains"
+                    academic_years ||--|{ students : "has"
+                    teachers ||--o{ subjects : "teaches"
+                    teachers ||--o{ attendance : "marks"
+                    subjects ||--o{ attendance : "records"
+                    students ||--o{ attendance : "has"
+
+                    users {
+                    uuid id PK
+                    string email
+                    string role
+                    }
+
+                    academic_years {
+                    uuid id PK
+                    string year_name
+                    date start_date
+                    date end_date
+                    boolean is_active
+                    }
+
+                    semesters {
+                    int id PK
+                    int semester_number
+                    uuid academic_year_id FK
+                    }
+
+                    teachers {
+                    uuid id PK
+                    uuid user_id FK
+                    string teacher_id
+                    string full_name
+                    string phone
+                    boolean is_active
+                    }
+
+                    students {
+                    uuid id PK
+                    uuid user_id FK
+                    string enrollment_number
+                    string full_name
+                    int semester
+                    string phone
+                    boolean is_active
+                    }
+
+                    subjects {
+                    uuid id PK
+                    string subject_name
+                    string subject_code
+                    int semester
+                    string subject_type
+                    uuid teacher_id FK
+                    boolean is_active
+                    }
+
+                    attendance {
+                    uuid id PK
+                    uuid student_id FK
+                    uuid subject_id FK
+                    uuid teacher_id FK
+                    date date
+                    string status
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- App Journeys (Synced from Project 2) -->
+        <section id="full-walkthrough" class="walkthrough-section">
+            <div class="walkthrough-container">
+
+                <!-- Faculty Section -->
+                <h3 class="walkthrough-group-title">👨‍🏫 Faculty App Tour</h3>
+
+                <!-- Screen 1 -->
+                <div class="screen-block">
+                    <div class="screen-text">
+                        <div class="screen-number">01</div>
+                        <h3>Welcome / Splash</h3>
+                        <p><strong>What happens:</strong> The first screen you see. Professional and branded.
+                            <br><br>
+                            <strong>Why important:</strong> Sets the tone for the premium experience.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Welcome.jpg" alt="Welcome Screen">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 2 -->
+                <div class="screen-block reverse">
+                    <div class="screen-text">
+                        <div class="screen-number">02</div>
+                        <h3>Login Screen</h3>
+                        <p><strong>What happens:</strong> Teacher enters email and password.
+                            <br><br>
+                            <strong>Why secure:</strong> Only authorized faculty can access. No student can enter.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Login.jpg" alt="Faculty Login">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 3 -->
+                <div class="screen-block">
+                    <div class="screen-text">
+                        <div class="screen-number">03</div>
+                        <h3>Dashboard (Home)</h3>
+                        <p><strong>What you see:</strong> Your name, list of subjects you teach, quick shortcuts.
+                            <br><br>
+                            <strong>Main action:</strong> Tap "Mark Attendance" to start. Everything is one click away.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Dashboard.jpg" alt="Faculty Dashboard">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 4 -->
+                <div class="screen-block reverse">
+                    <div class="screen-text">
+                        <div class="screen-number">04</div>
+                        <h3>Choose Subject</h3>
+                        <p><strong>What you do:</strong> Select which class/subject you're teaching right now. Example:
+                            "Physics - Sem 3".
+                            <br><br>
+                            <strong>Why clear:</strong> Shows subject name AND code. No confusion between similar
+                            subjects.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Select subject.jpg" alt="Select Subject">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 5 -->
+                <div class="screen-block">
+                    <div class="screen-text">
+                        <div class="screen-number">05</div>
+                        <h3>Student List</h3>
+                        <p><strong>What appears:</strong> Complete list of all enrolled students with names and
+                            enrollment numbers.
+                            <br><br>
+                            <strong>Easy to use:</strong> Scroll through, search by name. Everyone is listed
+                            alphabetically.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Student list.jpg" alt="Student List">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 6 -->
+                <div class="screen-block reverse">
+                    <div class="screen-text">
+                        <div class="screen-number">06</div>
+                        <h3>Mark Attendance</h3>
+                        <p><strong>How it works:</strong> Simple toggle buttons. Green = Present (default). Tap to make
+                            Red = Absent.
+                            <br><br>
+                            <strong>Why fast:</strong> Takes literally 10 seconds. No writing names, no paper, no
+                            mistakes.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Mark attendance.jpg" alt="Taking Attendance">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 7 -->
+                <div class="screen-block">
+                    <div class="screen-text">
+                        <div class="screen-number">07</div>
+                        <h3>Quick Actions</h3>
+                        <p><strong>What it shows:</strong> Two essential tools: "Add Student" and "Add Subject".
+                            <br><br>
+                            <strong>Why efficient:</strong> Manage your class data instantly without navigating away.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Dashbaord in Quick Action.jpg" alt="Attendance Summary">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 8 -->
+                <div class="screen-block reverse">
+                    <div class="screen-text">
+                        <div class="screen-number">08</div>
+                        <h3>Action Confirmed</h3>
+                        <p><strong>Confirmation:</strong> "✅ Action Completed Successfully".
+                            <br><br>
+                            <strong>What happens:</strong> Data is now updated in the system. Changes are reflected
+                            instantly.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Dashbaord in Quick Action.jpg" alt="Success Message">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 9 -->
+                <div class="screen-block">
+                    <div class="screen-text">
+                        <div class="screen-number">09</div>
+                        <h3>Add Student</h3>
+                        <p><strong>What you can do:</strong> Add new students to the system directly from the app.
+                            <br><br>
+                            <strong>Why useful:</strong> Quick enrollment without needing backend access.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Add Student.jpg" alt="Add Student">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 10 -->
+                <div class="screen-block reverse">
+                    <div class="screen-text">
+                        <div class="screen-number">10</div>
+                        <h3>Profile & Settings</h3>
+                        <p><strong>What's here:</strong> Your name, email, subjects assigned to you.
+                            <br><br>
+                            <strong>Actions:</strong> Change password, update profile, logout.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Setting.jpg" alt="Settings">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 11 -->
+                <div class="screen-block">
+                    <div class="screen-text">
+                        <div class="screen-number">11</div>
+                        <h3>Add Subject</h3>
+                        <p><strong>What it is:</strong> Interface to assign or create new subjects.
+                            <br><br>
+                            <strong>Used for:</strong> Managing the course load dynamicallly.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Add subject.jpg" alt="Add Subject">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screen 12 -->
+                <div class="screen-block reverse">
+                    <div class="screen-text">
+                        <div class="screen-number">12</div>
+                        <h3>Notifications</h3>
+                        <p><strong>What it shows:</strong> Important alerts and updates.
+                            <br><br>
+                            <strong>Action:</strong> Stay informed about deadlines, system updates, or attendance
+                            issues.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Faculty/Notification.jpeg" alt="Notifications">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Section -->
+                <h3 class="walkthrough-group-title" style="margin-top: 6rem;">👨‍🎓 Student App Tour</h3>
+
+                <!-- Student 1 -->
+                <div class="screen-block">
+                    <div class="screen-text">
+                        <div class="screen-number">01</div>
+                        <h3>Welcome / Splash</h3>
+                        <p><strong>What it is:</strong> The inviting entry point to your student journey.
+                            <br><br>
+                            <strong>Why cool:</strong> Represents your college identity every time you open the app.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Student/Welcome.jpg" alt="Welcome">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student 2 -->
+                <div class="screen-block reverse">
+                    <div class="screen-text">
+                        <div class="screen-number">02</div>
+                        <h3>Login Screen</h3>
+                        <p><strong>What it does:</strong> Students enter their enrollment number and password.
+                            <br><br>
+                            <strong>Why it matters:</strong> Only YOU can see YOUR data. No one else. Completely
+                            private.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Student/Login.jpg" alt="Student Login">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student 3 -->
+                <div class="screen-block">
+                    <div class="screen-text">
+                        <div class="screen-number">03</div>
+                        <h3>Dashboard (Home Screen)</h3>
+                        <p><strong>What you see:</strong> Your overall attendance % in BIG numbers. Example: "82%".
+                            <br><br>
+                            <strong>Color Code:</strong> Green = Safe. Red = Danger (Below 75%). You know instantly if
+                            you're in trouble.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Student/Dashboard.jpg" alt="Student Dashboard">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student 4 -->
+                <div class="screen-block reverse">
+                    <div class="screen-text">
+                        <div class="screen-number">04</div>
+                        <h3>Subject-Wise Details</h3>
+                        <p><strong>What it shows:</strong> Attendance for EACH subject separately. "Maths: 80%",
+                            "Physics: 65%", "Chemistry: 90%".
+                            <br><br>
+                            <strong>Why useful:</strong> You know exactly which subject is pulling you down. Focus on
+                            that!
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Student/Subject report.jpg" alt="Subject Breakdown">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student 5 -->
+                <div class="screen-block">
+                    <div class="screen-text">
+                        <div class="screen-number">05</div>
+                        <h3>Daily Reports</h3>
+                        <p><strong>What it shows:</strong> A daily breakdown of attendance.
+                            <br><br>
+                            <strong>Why useful:</strong> See your attendance pattern at a glance.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Student/Daily report.jpg" alt="Daily Report">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student 6 -->
+                <div class="screen-block reverse">
+                    <div class="screen-text">
+                        <div class="screen-number">06</div>
+                        <h3>Expanded Dashboard</h3>
+                        <p><strong>What's here:</strong> More detailed views and metrics about your performance.
+                            <br><br>
+                            <strong>Also:</strong> Quick access to other academic sections.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Student/Dashboard 1.jpg" alt="Expanded Dashboard">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student 7 -->
+                <div class="screen-block">
+                    <div class="screen-text">
+                        <div class="screen-number">07</div>
+                        <h3>Detailed Daily Insight</h3>
+                        <p><strong>What you get:</strong> Close up view of daily activities.
+                            <br><br>
+                            <strong>Why critical:</strong> Ensure every class marked is correct.
+                        </p>
+                    </div>
+                    <div class="screen-visual">
+                        <div class="screen-img-container">
+                            <img src="Image/Student/Daily report1.jpg" alt="Daily Insight">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Technical -->
+        <section id="technical">
+            <div class="section-header">
+                <h2 class="section-title">4. Technical Details</h2>
+            </div>
+
+            <div class="content-card">
+                <h3>RLS Security Policy</h3>
+                <div class="code-box">
+                    <pre><code>CREATE POLICY faculty_update_attendance ON attendance
+FOR UPDATE USING (
+  faculty_id = auth.uid() AND
+  is_locked = FALSE AND
+  marked_at >= NOW() - INTERVAL '3 days'
+);</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline (UPDATED: Shows In Progress) -->
+        <section id="timeline">
+            <div class="section-header">
+                <h2 class="section-title">5. Project Timeline</h2>
+                <p class="section-subtitle">Current Status: <strong>In Progress</strong></p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Week 1-2 (Done ✅)</span>
+                        <h3>Planning & Database Setup</h3>
+                        <p><strong>What we did:</strong> Decided what features we need. Drew the database structure
+                            (tables, relationships). Created Supabase project.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Week 3-4 (Done ✅)</span>
+                        <h3>Core App Development</h3>
+                        <p><strong>What we built:</strong> Faculty App (mark attendance feature). Student App (view
+                            attendance dashboard). Basic login/logout.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content" style="border-color: var(--accent-color); border-width: 2px;">
+                        <span class="timeline-date">Week 5-6 (Happening Now 🚧)</span>
+                        <h3>UI Polish & Mobile Testing</h3>
+                        <p><strong>What we're doing:</strong> Making the app look beautiful. Testing on real Android
+                            phones. Fixing small bugs and improving speed.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content" style="opacity: 0.6; border-style: dashed;">
+                        <span class="timeline-date">Week 7-8 (Coming Soon 🔜)</span>
+                        <h3>Final Testing & Launch</h3>
+                        <p><strong>What's next:</strong> Full testing with real teachers and students. Fix any remaining
+                            bugs. Deploy to production. Go LIVE!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="conclusion" style="text-align: center; padding-bottom: 4rem;">
+            <p style="margin-top: 3rem; color: var(--text-muted); font-size: 1rem;">
+                © 2026 Government Polytechnic College
+            </p>
+        </section>
+    </main>
+
+    <script src="presentation.js"></script>
+</body>
+
+</html>
