@@ -364,11 +364,12 @@
                     <div class="card-icon"><i class="fas fa-layer-group"></i></div>
                     <h3>Faculty App Libraries</h3>
                     <ul style="text-align: left; color: var(--text-muted); padding-left: 1rem;">
-                        <li>📦 <strong>@react-navigation/bottom-tabs</strong> (Navigation)</li>
-                        <li>📅 <strong>react-native-calendars</strong> (Attendance View)</li>
-                        <li>🔔 <strong>expo-notifications</strong> (Alerts)</li>
-                        <li>🌐 <strong>axios</strong> (API Requests)</li>
-                        <li>📊 <strong>react-native-svg</strong> (Charts)</li>
+                        <li>📦 <strong>@react-navigation/bottom-tabs</strong> (Moves between screens like Home,
+                            Settings)</li>
+                        <li>📅 <strong>react-native-calendars</strong> (Shows the attendance calendar)</li>
+                        <li>🔔 <strong>expo-notifications</strong> (Sends alerts to teachers)</li>
+                        <li>🌐 <strong>axios</strong> (Talks to the server to save data)</li>
+                        <li>📊 <strong>react-native-svg</strong> (Draws the charts and graphs)</li>
                     </ul>
                 </div>
 
@@ -376,11 +377,11 @@
                     <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3>Student App Libraries</h3>
                     <ul style="text-align: left; color: var(--text-muted); padding-left: 1rem;">
-                        <li>📦 <strong>@react-navigation/strict-stack</strong> (Routing)</li>
-                        <li>🎨 <strong>expo-linear-gradient</strong> (UI Styling)</li>
-                        <li>📅 <strong>react-native-calendars</strong> (History)</li>
-                        <li>💾 <strong>async-storage</strong> (Local Data)</li>
-                        <li>🔥 <strong>supabase-js</strong> (Real-time DB)</li>
+                        <li>📦 <strong>@react-navigation/strict-stack</strong> (Smooth page transitions)</li>
+                        <li>🎨 <strong>expo-linear-gradient</strong> (Makes the colors look cool)</li>
+                        <li>📅 <strong>react-native-calendars</strong> (Shows attendance history)</li>
+                        <li>💾 <strong>async-storage</strong> (Remembers you logged in)</li>
+                        <li>🔥 <strong>supabase-js</strong> (Updates data instantly)</li>
                     </ul>
                 </div>
             </div>
@@ -693,6 +694,20 @@
                 position: relative;
             }
 
+            @media (max-width: 768px) {
+                .code-tree-container {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1rem;
+                }
+
+                .tree-root {
+                    width: 100%;
+                    overflow-x: auto;
+                    /* Scroll horizontally if text is too long */
+                }
+            }
+
             .tree-root {
                 background: #0f172a;
                 padding: 1.5rem;
@@ -909,7 +924,8 @@
 
             /* Cursor hint for diagrams */
             .mermaid {
-                cursor: zoom-in;
+                /* cursor: zoom-in; removed as per user request */
+                user-select: none;
             }
 
             /* Responsive Flowchart Visibility */

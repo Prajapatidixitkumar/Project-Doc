@@ -224,6 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let activeClone = null;
 
         diagrams.forEach(diagram => {
+            // DIAGRAM ZOOM DISABLED AS PER USER REQUEST
+            /*
             diagram.addEventListener('click', () => {
                 const svg = diagram.querySelector('svg');
                 if (svg) {
@@ -291,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             });
+            */
         });
 
         // Global Mouse Up/Move to handle dragging outside element
